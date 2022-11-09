@@ -6,7 +6,7 @@ module.exports = {
     theme: {
       extend: {
         backgroundImage: {
-            'landbingbackground': "url('../src/assets/landingbg.jpg')"
+            'landbingbackground': "url('../src/assets/landingbg3.jpg')"
           }
       },
     },

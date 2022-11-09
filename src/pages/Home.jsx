@@ -1,22 +1,23 @@
 import React from "react";
 import Button from '@mui/material/Button';
 
+
 function Home() {
   return (
-      <div className="bg-black h-[855px] bg-cover bg-center relative">
-      <div className="bg-landbingbackground w-full h-[855px] object-cover absolute">
-        <div className="flex-row justify-center items-center">
-          <h1 className="h-full text-9xl text-white">
-            PREMIUM CAR DETAILING
-          </h1>
-          <div>
-            <Button variant="outlined" size="large">
+      <div className="bg-landbingbackground h-[850px] flex justify-center">
+        <div className="h-full w-3/6">
+          <div  className="h-3/6 w-full">
+            <h1 className="text-9xl text-white text-left pt-48">
+              PREMIUM CAR DETAILING
+            </h1>
+          </div>
+          <div  className="w-full flex justify-start pt-8">
+            <Button variant="contained" size="large">
               SEE OUR SERVICES
             </Button>
           </div>
         </div>
       </div>
-    </div>
   );
 }
 

@@ -1,24 +1,42 @@
-import React from "react";
-import Button from '@mui/material/Button';
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import Box from '@mui/material/Box';
 
-function Services() {
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
+
+export default function Services() {
   return (
-      <div className="bg-black h-[855px] bg-cover bg-center relative">
-      <div className="bg-landbingbackground w-full h-[855px] object-cover absolute">
-        <div className="flex-row justify-center items-center">
-          <h1 className="h-full text-9xl text-white">
-            PREMIUM CAR DETAILING
-          </h1>
-          <div>
-            <Button variant="outlined" size="large">
-              SEE OUR SERVICES
-            </Button>
-            Te büdös köcsög
-          </div>
-        </div>
-      </div>
+    <div className='bg-[#505050] h-screen'>
+    <Box sx={{ width: '100%' }}>
+      <Grid container
+            direction="column"
+            justifyContent="center"
+            alignItems="center" 
+            rowSpacing={1} 
+            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+            >
+        <Grid item xs={6}>
+          <Item>1</Item>
+        </Grid>
+        <Grid item xs={6}>
+          <Item>2</Item>
+        </Grid>
+        <Grid item xs={6}>
+          <Item>3</Item>
+        </Grid>
+        <Grid item xs={6}>
+          <Item>4</Item>
+        </Grid>
+      </Grid>
+    </Box>
     </div>
   );
 }
-
-export default Services;
