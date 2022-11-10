@@ -47,6 +47,11 @@ export default function Navbar(){
           <Button>Contact</Button>
         </ThemeProvider>
         </Link>
+        <Link className="pl-8" to="/login"> 
+        <ThemeProvider theme={theme}>
+          <Button>Login</Button>
+        </ThemeProvider>
+        </Link>
       </div>
     </header>
     </div>

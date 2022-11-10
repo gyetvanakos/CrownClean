@@ -7,11 +7,18 @@ import Blog from "./pages/Blog"
 import Services from "./pages/Services"
 import About from "./pages/About"
 import Contact from "./pages/Contact"
+import Login from "./pages/Login"
 import Footer from "./components/Footer"
 
 
 
+
+
+
 function App() {
+  const token = localStorage.getItem('accessToken');
+
+if(!token) {
   return (
     <div className="App" >
         <Router>
@@ -22,11 +29,13 @@ function App() {
             <Route path='/services' element={<Services/>} />
             <Route path='/about' element={<About/>} />
             <Route path='/contact' element={<Contact/>} />
+            <Route path='/login' element={<Login/>} />
           </Routes>
           <Footer/>
         </Router>
     </div>
   );
+}
 }
 
 export default App;
