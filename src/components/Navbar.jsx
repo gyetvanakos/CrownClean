@@ -19,14 +19,14 @@ const theme = createTheme({
 
 export default function Navbar(){
   return (
-    <div class="w-full flex justify-center items-center bg-[#3e5c9a]">
-    <header class="h-32 w-[1400px] flex ">
-      <div class="justify-center">
+    <div className="w-full flex justify-center items-center bg-[#3e5c9a]">
+    <header className="h-32 w-[1400px] flex ">
+      <div className="justify-center">
         <Link to="/">
           <img src={cclogo} className="h-20 pl-8" alt="logo" />
         </Link>
       </div>
-      <div class="flex w-full justify-end items-center">
+      <div className="flex w-full justify-end items-center">
         <Link className="pl-8" to="/"> 
         <ThemeProvider theme={theme}>
           <Button>Home</Button>

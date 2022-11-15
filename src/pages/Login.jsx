@@ -1,45 +1,55 @@
 import React, { useState } from "react";
 import swal from "sweetalert";
 import TextField from "../components/Textfield";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Button from '@mui/material/Button';
 
 async function loginUser(credentials) {
-    return fetch('http://localhost:4000/api/user/login', {
+    return await fetch('http://localhost:4000/api/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(credentials)
     })
-      .then(data => data.json())
+      .then(data =>  {data.json()     
+        console.log(data)})
    }
-
-export default function Login() {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
-
-  const handleSubmit = async e => {
-    e.preventDefault();
-    const response = await loginUser({
-      email,
-      password
-    });
-    if ('accessToken' in response) {
-      swal("Success", response.message, "success", {
-        buttons: false,
-        timer: 2000,
-      })
-      .then((value) => {
-        localStorage.setItem('accessToken', response['accessToken']);
-        localStorage.setItem('email', JSON.stringify(response['email']));
-        window.location.href = "/blog";
+ 
+   export default function Login() {
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      const res = await loginUser({
+        email,
+        password,
       });
-    } else {
-      swal("Failed", response.message, "error");
-    }
-  }
+      if (res["error"] === null) {
+        swal("Success", res.message, "success", {
+          buttons: false,
+          timer: 2000,
+        }).then((value) => {
+          localStorage.setItem("accessToken", res["data"].token);
+          localStorage.setItem("user", res["data"].userId);
+          localStorage.setItem("name", res["data"].name);
+          localStorage.setItem("email", res["data"].email);
+          window.location.href = "/blog";
+        });
+      } else if (res["error"] !== null) {
+        toast.error(res.error + ", please try again!", {
+          position: "top-right",
+          autoClose: false,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+        });
+      }
+    };
   return (
     <div className="relative w-full h-screen bg-[#505050]">
       <ToastContainer />

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 
 
@@ -12,9 +13,11 @@ function Home() {
             </h1>
           </div>
           <div  className="w-full flex justify-start pt-8">
-            <Button variant="contained" size="large">
-              SEE OUR SERVICES
-            </Button>
+            <Link  to="/services">
+              <Button variant="contained" size="large">
+                SEE OUR SERVICES
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

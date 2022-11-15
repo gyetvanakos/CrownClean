@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import cclogo from '../assets/logo.svg';
-import { FaFacebook, FaEnvelope } from 'react-icons/fa';
+import { FaFacebook, FaEnvelope, FaTiktok } from 'react-icons/fa';
 
 function Footer() {
   return (
-    <div class="w-full flex justify-center items-center bg-[#656565]">
-        <footer class="h-44 w-[1400px] flex justify-center items-center">
-            <div class="flex flex-col items-center justify-center w-4/12">
+    <div className="w-full flex justify-center items-center bg-[#656565]">
+        <footer className="h-44 w-[1400px] flex justify-center items-center">
+            <div className="flex flex-col items-center justify-center w-4/12">
               <Link to="/">
                 <img src={cclogo} className="block h-12 pl-8" alt="logo" />    
               </Link>
@@ -23,7 +23,8 @@ function Footer() {
               <h1 className="text-base text-white">Contact Us</h1>
               <div className="flex items-center justify-center">
               <a className="pr-4" href="https://www.facebook.com/CrownCleanKft"><FaFacebook className="text-white"/></a>
-              <Link  to="/contact"> <FaEnvelope className="text-white"/> </Link>
+              <a className="pr-4" href="https://www.tiktok.com/@4c_crowncleancarcosmetic"><FaTiktok className="text-white"/></a>
+              <Link  to="/contact"><FaEnvelope className="text-white"/></Link>
               </div>
             </div>
         </footer>
