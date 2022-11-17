@@ -1,16 +1,16 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import testpic from '../assets/testpic.jpg';
+import React, { useState, useEffect } from 'react';
+import Posts from '../components/Posts';
+import Pagination from '../components/Pagination';
 import axios from "axios";
 
 const baseURL = "http://localhost:4000/api/posts";
 
-export default function Blog() {
+function Blog() {
 
-  const [posts, setPost] = React.useState(null);
+  const [posts, setPost] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(10);
 
   React.useEffect(() => {
     axios.get(baseURL).then((response) => {
@@ -18,32 +18,23 @@ export default function Blog() {
     });
   }, []);
 
-  if (!posts) return "null";
+  if (!posts) return "There are no posts";
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
-    <div className="bg-[#505050] min-h-screen flex justify-center">
-    {posts.map((post) => {
-       return (
-    <div className="h-full w-3/6 block">
-        <Card className="mt-20" sx={{ width: 1 }}>
-            <CardContent className="bg-[#656565]">
-              <Typography gutterBottom variant="h5" component="div">
-                <h1 className='text-white'>{post.title}</h1>
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                <span className='text-white'>{post.content}</span>
-              </Typography>
-            </CardContent>
-            <CardMedia
-              component="img"
-              height="140"
-              image={testpic}
-              alt="bmw"
-            />
-        </Card>
+    <div className="bg-[#505050] min-h-screen flex flex-col items-center ">
+      <Posts posts={currentPosts} loading={loading} />
+      <Pagination
+        postsPerPage={postsPerPage}
+        totalPosts={posts.length}
+        paginate={paginate}
+      />
     </div>
-    );
-    })}
-  </div>
   );
-}
+};
+export default Blog;

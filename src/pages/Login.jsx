@@ -13,8 +13,6 @@ async function loginUser(credentials) {
       },
       body: JSON.stringify(credentials)
     })
-      .then(data =>  {data.json()     
-        console.log(data)})
    }
  
    export default function Login() {
@@ -23,11 +21,13 @@ async function loginUser(credentials) {
   
     const handleSubmit = async (e) => {
       e.preventDefault();
-      const res = await loginUser({
+      const response = await loginUser({
         email,
         password,
       });
-      if (res["error"] === null) {
+      const res = await response.json()
+
+      if (response.ok) {
         swal("Success", res.message, "success", {
           buttons: false,
           timer: 2000,
@@ -38,7 +38,7 @@ async function loginUser(credentials) {
           localStorage.setItem("email", res["data"].email);
           window.location.href = "/blog";
         });
-      } else if (res["error"] !== null) {
+      } else {
         toast.error(res.error + ", please try again!", {
           position: "top-right",
           autoClose: false,
