@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import cclogo from '../assets/logo.svg';
 import Button from '@mui/material/Button';
@@ -17,7 +18,17 @@ const theme = createTheme({
   },
 });
 
+
 export default function Navbar(){
+  
+  const navigate = useNavigate();
+
+  function logOut() {
+    localStorage.clear();
+    navigate("/login");
+  }
+
+  
   return (
     <div className="w-full flex justify-center items-center bg-[#3e5c9a]">
     <header className="h-32 w-[1400px] flex ">
@@ -50,6 +61,15 @@ export default function Navbar(){
         <Link className="pl-8" to="/login"> 
         <ThemeProvider theme={theme}>
           <Button>Login</Button>
+        </ThemeProvider>
+        </Link>
+        <Link className="pl-8" to="/"> 
+        <ThemeProvider theme={theme}>
+        <Button 
+        onClick={logOut} 
+        >
+          Logout
+        </Button>
         </ThemeProvider>
         </Link>
       </div>

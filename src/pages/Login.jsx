@@ -36,7 +36,7 @@ async function loginUser(credentials) {
           localStorage.setItem("user", res["data"].userId);
           localStorage.setItem("name", res["data"].name);
           localStorage.setItem("email", res["data"].email);
-          window.location.href = "/blog";
+          window.location.href = "/admin";
         });
       } else {
         toast.error(res.error + ", please try again!", {
