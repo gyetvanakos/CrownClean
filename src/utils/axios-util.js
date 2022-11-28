@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const client = axios.create({
-  baseURL: "http://localhost:4000/api",
+  baseURL: "http://localhost:4000/",
 });
 export const request = ({ ...options }) => {
   let token = localStorage.getItem("accessToken");

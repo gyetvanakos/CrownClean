@@ -10,7 +10,7 @@ function Blog() {
   const [posts, setPost] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
+  const [postsPerPage] = useState(5);
 
   React.useEffect(() => {
     axios.get(baseURL).then((response) => {
