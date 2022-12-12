@@ -22,7 +22,7 @@ function About() {
 
   return (
     <div className=" box-content flex flex-col justify-center items-center bg-[#505050] w-full">
-      <section className="w-[80%] h-1/3">
+      <section className="w-[80%] box-border h-1/3">
         <div className="text-center md:pt-28">
             <h1 className='text-white'>
               ABOUT US
@@ -39,10 +39,10 @@ function About() {
             </p>
           </div>
       </section>
-      <section className="w-[80%] h-1/3 flex justify-center items-center">
+      <section className="w-[80%] box-border h-1/3">
         <ImageSlider/>
       </section>
-      <section className="w-[80%] h-1/3">
+      <section className="w-[80%] box-border h-1/3">
         <div className="text-center">
           <Link className="" to="/contact"> 
             <Button className="pt-20" variant="contained" type="submit" size="large">

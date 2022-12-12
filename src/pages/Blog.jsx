@@ -27,7 +27,7 @@ function Blog() {
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
-    <div className="bg-[#505050] min-h-screen flex flex-col items-center ">
+    <div className="bg-[#505050] min-h-screen w-full">
       <Posts posts={currentPosts} loading={loading} />
       <Pagination
         postsPerPage={postsPerPage}

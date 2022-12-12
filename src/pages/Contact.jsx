@@ -21,37 +21,30 @@ export const Contact = () => {
 
   return (
     
-    <div className="bg-[#505050] h-screen flex flex-col justify-center items-center">
-      <div className='pt-20 w-1/2'>
-        <p className='text-white'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed leo felis, porttitor ut justo vel, facilisis luctus nulla. Morbi pellentesque erat id orci dignissim mattis. Mauris commodo posuere purus, eu ultricies nisi varius vitae. Phasellus aliquet tristique turpis vitae auctor. Ut vestibulum, eros eu semper feugiat, elit tellus rutrum purus, sed ullamcorper quam lectus porttitor neque. Mauris augue ipsum, sodales eu nisi molestie, scelerisque porta magna. Cras vel turpis iaculis magna pretium dignissim.</p>
-      </div>
-    <form className='pt-20' ref={form} onSubmit={sendEmail}>
-      <div class="row input-container">
-        <div class="col-xs-12">
-          <div class="styled-input wide">
-            <input type="text" name="user_name" required />
-            <label>Name</label> 
-          </div>
+    <div>
+      <section class="bg-[#505050]">
+        <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
+            <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-white sm:text-xl">Got questions? Need details about our services? Let us know.</p>
+            <form action="#" class="space-y-8" ref={form} onSubmit={sendEmail}>
+                <div>
+                    <input type="text" name="user_name" id="name" class="shadow-sm bg-[#18191a] border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Name" required/>
+                </div>
+                <div>
+                    <input type="text" name="user_email" id="email" class="block p-3 w-full text-sm text-gray-900  rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Email" required/>
+                </div>
+                <div class="sm:col-span-2">
+                    <textarea name="message" id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
+                </div>
+                <Button variant="contained" type="submit" size="large">
+                  SEND
+                </Button>
+            </form>
         </div>
-        <div class="col-xs-12">
-          <div class="styled-input wide">
-            <input type="text" name="user_email" required />
-            <label>Email</label> 
-          </div>
-        </div>
-        <div class="col-xs-12">
-          <div class="styled-input wide">
-            <textarea name="message" required></textarea>
-            <label>Message</label>
-          </div>
-        </div>
-          <Button variant="contained" type="submit" size="large">
-            SEND
-          </Button>
-      </div>
-    </form>
+      </section>
     </div>
   );
 };
 
 export default Contact;
+

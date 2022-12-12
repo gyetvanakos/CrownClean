@@ -25,12 +25,12 @@ const Posts = ({ posts, loading }) => {
   }
 
   return (
-    <div>
+  <div class="flex items-center justify-center h-full w-full">
+    <div class="h-full w-[80%] sm:w-1/2">
     {posts.map((post) => {
        return (
-    <div className="h-full w-3/6 block pt-20">
-        <Card className="" sx={{ width: 1 }}>
-            <CardContent className="bg-[#656565]">
+        <Card className="w-1/2 mt-20 " sx={{ width: 1 }}>
+            <CardContent className="bg-[#242526]">
               <Typography gutterBottom variant="h5" component="div">
                 <h1 className='text-white'>{post.title}</h1>
               </Typography>
@@ -41,16 +41,15 @@ const Posts = ({ posts, loading }) => {
             <CardMedia
               component="img"
               height="140"
-              image={testpic}
+              image={post.picture_url  || testpic}
               alt="bmw"
             />
-          <Button onClick={() => handleOnClickDelete(post._id)}>
-            DELETE
-          </Button>
         </Card>
-    </div>
+
     );
     })}
+
+    </div>
   </div>
     
   );

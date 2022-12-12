@@ -14,7 +14,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Services() {
   return (
-    <div className='bg-[#505050] h-screen'>
+    <div className='bg-[#505050] h-full p-20 '>
     <Box sx={{ width: '100%' }}>
       <Grid container
             direction="column"
