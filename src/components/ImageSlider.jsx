@@ -1,7 +1,18 @@
 import { useState, useEffect } from "react";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from "react-icons/ai";
 import { sliderData } from "../slider_data";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import "./Slider.css";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#18191a',
+    },
+    secondary: {
+      main: '#11cb5f',
+    },
+  },
+});
 
 const Slider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -37,9 +48,7 @@ const Slider = () => {
   }, [currentSlide]);
 
   return (
-    <div className="slider"> 
-      <AiOutlineArrowLeft className="arrow prev" onClick={prevSlide} />
-      <AiOutlineArrowRight className="arrow next" onClick={nextSlide} />
+    <div className="h-[300px] w-full flex justify-center items-center pt-0 sm:pt-12 sm:h-[500px]">
       {sliderData.map((slide, index) => {
         return (
           <div
@@ -47,8 +56,8 @@ const Slider = () => {
             key={index}
           >
             {index === currentSlide && (
-              <div>
-                <img src={slide.image} alt="slide" className="image" />
+              <div className="flex justify-center items-center w-full">
+                <img src={slide.image} alt="slide" className="image w-[800px]" />
               </div>
             )}
           </div>

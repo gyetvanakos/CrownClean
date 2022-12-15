@@ -14,11 +14,9 @@ import { GiHamburgerMenu } from "react-icons/gi";
 const theme = createTheme({
     palette: {
       primary: {
-        // Purple and green play nicely together.
         main: '#fff',
       },
       secondary: {
-        // This is green.A700 as hex.
         main: '#11cb5f',
       },
     },
@@ -60,7 +58,7 @@ export default function MenuListComposition() {
   }, [open]);
 
   return (
-      <div  className="w-full flex justify-end md:hidden w-1/2 ">
+      <div className="w-full flex justify-end md:hidden w-1/2 ">
         <Button
           ref={anchorRef}
           id="composition-button"
@@ -72,6 +70,7 @@ export default function MenuListComposition() {
           <GiHamburgerMenu className="text-xl text-white"/>
         </Button>
         <Popper
+          className="z-50"
           open={open}
           anchorEl={anchorRef.current}
           role={undefined}

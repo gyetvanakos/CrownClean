@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router";
-//import axios from "axios";
 import { request } from "../utils/axios-util";
 import { storage } from "../firebase"
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import Button from '@mui/material/Button';
 
 function CreatePost() {
     const [title, setTitle] = useState('');
@@ -24,7 +24,7 @@ function CreatePost() {
           picture_url: imgUrl,
         };
         request({ url: `/api/posts/`, method: "POST", data: data }).then((res) => {
-          navigate(`/admin`);
+          window.location.href = "/admin";
           console.log(res);
         });
         console.log(data)
@@ -45,46 +45,48 @@ function CreatePost() {
   }      
 
   return (
-    <div>
+    <div className="xl:w-1/2 sm:w-[80%]">
     <form>
-      <label> Title:
+    <div className="pt-8">
+      <input 
+      type="text" 
+      name="post_title" 
+      id="title" 
+      class="block p-3 w-full text-sm text-gray-900  rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-[#18191a] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" 
+      placeholder="Title" 
+      required
+      value={title}
+      onChange={(e) => setTitle(e.target.value)}/>
+    </div>
+    <div class="sm:col-span-2 pt-8">
+      <textarea 
+      name="message" 
+      id="message" 
+      rows="6" 
+      class="block p-2.5 w-full text-sm text-gray-900 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-[#18191a] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" 
+      placeholder="Leave a comment..."
+      value={content}
+      onChange={(e) => setContent(e.target.value)}>
+      </textarea>
+    </div>
+    <div className="pt-8 pb-8">
       <input
-          className="p-3 mb-2 w-full text-sm border border-indigo-600 rounded-lg relative"
-          type="text"
-          placeholder="Post Title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-      </label>
-      <label> Content:
-      <input
-          className="p-3 mb-2 w-full text-sm border border-indigo-600 rounded-lg relative"
-          type="text"
-          placeholder="Post Content"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-      </label>
-      <label> Image:
-          <div className="App">
-            <input
-              type="file"
-              onChange={(event) => {
-                uploadFile(event.target.files[0]);
-              }}
-            
-            />
-            {imgUrl && (<img src={imgUrl} alt="content"></img>)}
-          </div>
-      </label>
-      <button
-        onClick={handleOnSubmitForm}
-        disabled={loading}
-        type="submit"
-        className="block w-full  p-3 text-white bg-indigo-600 border border-indigo-600 rounded-lg hover:bg-transparent hover:text-indigo-600 active:text-indigo-500 focus:outline-none focus:ring"
-      >
-        Create Post
-      </button>
+      
+      type="file"
+      onChange={(event) => {
+      uploadFile(event.target.files[0]);
+      }}/>
+        {imgUrl && (<img src={imgUrl} alt="content"></img>)}
+    </div>
+      <Button 
+      className="" 
+      variant="contained" 
+      type="submit" 
+      size="large"
+      onClick={handleOnSubmitForm}
+      disabled={loading}>
+        Create post
+      </Button>
     </form>
     </div>
   );

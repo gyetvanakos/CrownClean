@@ -13,6 +13,7 @@ import Contact from "./pages/Contact"
 import Login from "./pages/Login"
 import Admin from "./pages/Admin"
 import Footer from "./components/Footer"
+import './form.css';
 
 const queryClient = new QueryClient();
 

@@ -22,16 +22,8 @@ const theme = createTheme({
 
 export default function Navbar(){
   
-  const navigate = useNavigate();
-
-  function logOut() {
-    localStorage.clear();
-    navigate("/login");
-  }
-
-  
   return (
-    <div className="w-full h-20 flex justify-center bg-[#18191a]">
+    <div className="w-full h-20 flex justify-center bg-[#18191a] z-50">
       <div className="w-1/2 flex justify-start">
         <Link to="/">
           <img src={cclogo} className="h-12 pl-8 w-full" alt="logo" />

@@ -27,9 +27,12 @@ const Posts = ({ posts, loading }) => {
   return (
   <div class="flex items-center justify-center h-full w-full">
     <div class="h-full w-[80%] sm:w-1/2">
-    {posts.map((post) => {
+    
+    {posts.slice(0)
+          .reverse()
+          .map((post, index) => {
        return (
-        <Card className="w-1/2 mt-20 " sx={{ width: 1 }}>
+        <Card className="w-full mt-20 " sx={{ width: 1 }}>
             <CardContent className="bg-[#242526]">
               <Typography gutterBottom variant="h5" component="div">
                 <h1 className='text-white'>{post.title}</h1>

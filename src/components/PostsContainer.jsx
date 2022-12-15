@@ -11,6 +11,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import testpic from '../assets/testpic.jpg';
+import { positions } from '@mui/system';
 
 
 
@@ -48,17 +49,22 @@ export default function PostsContainer() {
     return (
       <>
         {
-        data?.data.map((post) => (
+        data?.data.slice(0)
+        .reverse()
+        .map((post, index) => (
           <div key={post._id}>
-            <div class="flex items-center justify-center h-full w-full">
-              <div class="h-full w-[80%] sm:w-1/2">
-              <Card className="w-1/2 mt-20 " sx={{ width: 1 }}>
+            <div class="flex items-center justify-center box-content">
+              <div class="xl:w-[900px] sm:w-[80%]">
+              <Card className="mt-10" sx={{ width: 1 }}>
                   <CardContent className="bg-[#656565]">
                     <Typography gutterBottom variant="h5" component="div">
                       <h1 className='text-white'>{post.title}</h1>
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                       <span className='text-white'>{post.content}</span>
+                    </Typography>
+                    <Typography className="pt-4" color="text.secondary">
+                      <span className='text-white'>{post.date}</span>
                     </Typography>
                   </CardContent>
                   <CardMedia
@@ -68,21 +74,33 @@ export default function PostsContainer() {
                     alt="bmw"
                   />
               </Card>
-                <Button onClick={() => handleOnClickDelete(post._id)}>
-                    DELETE
-                </Button>
-                <Button
-                key={post._id}
-                onClick={() => {onOpen();setJustClickedPost(post._id)}}
-                  className="inline-flex absolute bottom-8 right-4 py-1 text-sm font-light text-indigo-600 transition-colors bg-white border border-indigo-600 rounded hover:bg-indigo-600 hover:text-white focus:outline-none focus:ring active:opacity-75"
-                >
-                  <span className="text-sm font-bold mr-1 ml-2">EDIT</span>
-                </Button>
+                <div className="w-full h-20 flex justify-evenly items-center bg-[#656565] mb-10">
+                  <Button 
+                  className="w-1/2 h-full"
+                  variant="contained" 
+                  onClick={() => handleOnClickDelete(post._id)}>
+                      DELETE
+                  </Button>
+                  <Button
+                  className="w-1/2 h-full"
+                  variant="contained" 
+                  key={post._id}
+                  onClick={() => {onOpen();setJustClickedPost(post._id)}}>
+                    EDIT
+                  </Button>
+                </div> 
               </div>
             </div>
-            {show && justClickedPost === post._id ?(<PostsUpdateModal post={post} onClose={onClose} show={show} />) : null }
+            {show && justClickedPost === post._id ?(
+            <PostsUpdateModal 
+            post={post} 
+            onClose={onClose} 
+            show={show}
+            scroll="paper"
+            positions="fixed"
+             
+            />) : null }
           </div>
-          
         ))}
       </>
     );

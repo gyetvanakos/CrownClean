@@ -21,7 +21,7 @@ const theme = createTheme({
 function About() {
 
   return (
-    <div className=" box-content flex flex-col justify-center items-center bg-[#505050] w-full">
+    <div className=" box-content flex flex-col justify-center items-center bg-[#505050] w-full z-50">
       <section className="w-[80%] box-border h-1/3">
         <div className="text-center md:pt-28">
             <h1 className='text-white'>

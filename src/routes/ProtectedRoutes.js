@@ -14,7 +14,7 @@ const useAuth = () => {
 const ProtectedRoutes = (props) => {
   const auth = useAuth();
 
-  return auth ? <Outlet /> : <Navigate to="/home" />;
+  return auth ? <Outlet /> : <Navigate to="/" />;
 };
 
 export default ProtectedRoutes;

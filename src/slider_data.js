@@ -1,6 +1,6 @@
 export const sliderData = [
     {
-      image: "https://scontent-cph2-1.xx.fbcdn.net/v/t39.30808-6/318201135_632051448713502_8307462465292299285_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=p_S9MLQJa1EAX8IXX5F&_nc_ht=scontent-cph2-1.xx&oh=00_AfDwrFfIKVnRMA_4Dudz3Cm7zKqqcId80xjTzVIwXh9HeQ&oe=63957061",
+      image: "https://firebasestorage.googleapis.com/v0/b/crownclean-41562.appspot.com/o/images%2F1670864554366318201135_632051448713502_8307462465292299285_n.jpg?alt=media&token=fbddd4f8-481f-4adf-b02e-c82cd63d4b4b",
       heading: "Slide One",
       desc: "This is the description of slide one Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi quos quas, voluptatum nesciunt illum exercitationem.",
     },
@@ -15,3 +15,4 @@ export const sliderData = [
       desc: "This is the description of slide three Lorem ipsum dolor, sit amet consectetur adipisicing elit. Modi quos quas, voluptatum nesciunt illum exercitationem.",
     },
   ];
+
