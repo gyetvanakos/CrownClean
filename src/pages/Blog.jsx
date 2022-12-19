@@ -29,7 +29,7 @@ function Blog() {
 
   return (
     <div className="bg-[#505050] min-h-screen w-full">
-      <div className=" box-content flex flex-col justify-center items-center bg-[#505050] w-full">
+      <div className="box-content flex flex-col justify-center items-center bg-[#505050] w-full">
       <section className="w-[80%] h-1/3 md:w-[50%] ">
       <div className="pt-8">
             <img src={cclogo} className="h-10 w-full" alt="logo" />

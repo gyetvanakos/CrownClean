@@ -10,7 +10,7 @@ module.exports = {
         },
 
         backgroundImage: {
-            'landbingbackground': "url('../src/assets/868287.jpg')"
+            'landbingbackground': "url('../src/assets/997677.jpg')"
         }
       },
       fontFamily: {

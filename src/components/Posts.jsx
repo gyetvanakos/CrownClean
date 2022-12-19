@@ -26,7 +26,7 @@ const Posts = ({ posts, loading }) => {
 
   return (
   <div class="flex items-center justify-center h-full w-full">
-    <div class="h-full w-[80%] sm:w-1/2">
+    <div class="h-full w-full lg:w-1/2 sm:w-[80%]">
     
     {posts.slice(0)
           .reverse()
@@ -43,10 +43,11 @@ const Posts = ({ posts, loading }) => {
             </CardContent>
             <CardMedia
               component="img"
-              height="140"
+              maxHeight="140px"
               image={post.picture_url  || testpic}
               alt="bmw"
-            />
+            >
+            </CardMedia>
         </Card>
 
     );

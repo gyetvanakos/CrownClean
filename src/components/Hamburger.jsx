@@ -10,6 +10,8 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { GiHamburgerMenu } from "react-icons/gi";
+import { FiMail } from "react-icons/fi";
+import { FaFacebook, FaEnvelope, FaTiktok } from 'react-icons/fa';
 
 const theme = createTheme({
     palette: {
@@ -98,37 +100,59 @@ export default function MenuListComposition() {
                     <MenuItem onClick={handleClose}>
                         <Link to="/"> 
                             <ThemeProvider theme={theme}>
-                                <Button>Home</Button>
+                                <Button><h1  className="text-4xl text-white">_HOME</h1></Button>
                             </ThemeProvider>
                         </Link>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
                       <Link to="/blog"> 
                         <ThemeProvider theme={theme}>
-                          <Button>Blog</Button>
+                          <Button><h1  className="text-4xl text-white">_BLOG</h1></Button>
                         </ThemeProvider>
                       </Link>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
                       <Link  to="/about"> 
                         <ThemeProvider theme={theme}>
-                          <Button>About</Button>
+                          <Button><h1  className="text-4xl text-white">_ABOUT</h1></Button>
                         </ThemeProvider>
                       </Link>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
                       <Link  to="/services"> 
                         <ThemeProvider theme={theme}>
-                          <Button>Services</Button>
+                          <Button><h1  className="text-4xl text-white">_SERVICES</h1></Button>
                         </ThemeProvider>
                       </Link>
                     </MenuItem>
                     <MenuItem onClick={handleClose}>
                       <Link  to="/contact"> 
                         <ThemeProvider theme={theme}>
-                          <Button>Contact</Button>
+                          <Button><h1  className="text-4xl text-white">_CONTACT</h1></Button>
                         </ThemeProvider>
                       </Link>
+                    </MenuItem>
+                    <MenuItem onClick={handleClose}>
+                    <div className="text-center w-full flex flex-row justify-center items-center pt-8">
+                      <div>
+                        <a className="" href="https://www.facebook.com/CrownCleanKft">
+                        <ThemeProvider theme={theme}> 
+                          <Button className="w-20 h-20" variant="text" type="submit" size="large">
+                          <FaFacebook className="text-2xl"/>
+                          </Button>
+                        </ThemeProvider>
+                        </a>
+                      </div>
+                      <div>
+                        <a className="pl-12" href="https://www.tiktok.com/@crowncleancarcosmetics">
+                        <ThemeProvider theme={theme}> 
+                          <Button className="w-20 h-20" variant="text" type="submit" size="large">
+                            <FaTiktok className="text-2xl"/>
+                          </Button>
+                        </ThemeProvider>
+                        </a>
+                      </div>  
+                    </div>
                     </MenuItem>
                   </MenuList>
                 </ClickAwayListener>
