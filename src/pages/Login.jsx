@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Button from '@mui/material/Button';
 
 async function loginUser(credentials) {
-    return await fetch('http://localhost:4000/api/users/login', {
+    return await fetch('https://crowncleanapi.herokuapp.com/api/users/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

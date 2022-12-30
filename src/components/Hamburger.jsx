@@ -97,41 +97,43 @@ export default function MenuListComposition() {
                     onKeyDown={handleListKeyDown}
                     className='bg-[#656565] w-screen h-screen'
                   >
-                    <MenuItem onClick={handleClose}>
-                        <Link to="/"> 
-                            <ThemeProvider theme={theme}>
-                                <Button><h1  className="text-4xl text-white">_HOME</h1></Button>
-                            </ThemeProvider>
-                        </Link>
-                    </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <Link to="/blog"> 
+                    <Link to="/"> 
+                      <MenuItem  onClick={handleClose}>
+                          
+                              <ThemeProvider theme={theme}>
+                                  <Button><h1  className="text-4xl text-white">HOME</h1></Button>
+                              </ThemeProvider>
+                          
+                      </MenuItem>
+                    </Link>
+                    <Link to="/blog"> 
+                      <MenuItem onClick={handleClose}>
+                          <ThemeProvider theme={theme}>
+                            <Button><h1  className="text-4xl text-white">BLOG</h1></Button>
+                          </ThemeProvider>
+                      </MenuItem>
+                    </Link>
+                    <Link  to="/about"> 
+                      <MenuItem onClick={handleClose}>
+                          <ThemeProvider theme={theme}>
+                            <Button><h1  className="text-4xl text-white">ABOUT</h1></Button>
+                          </ThemeProvider>
+                      </MenuItem>
+                    </Link>
+                    <Link  to="/services">
+                      <MenuItem onClick={handleClose}>
+                          <ThemeProvider theme={theme}>
+                            <Button><h1  className="text-4xl text-white">SERVICES</h1></Button>
+                          </ThemeProvider>
+                      </MenuItem>
+                    </Link>
+                    <Link  to="/contact"> 
+                    <MenuItem onClick={handleClose}>                  
                         <ThemeProvider theme={theme}>
-                          <Button><h1  className="text-4xl text-white">_BLOG</h1></Button>
+                          <Button><h1  className="text-4xl text-white">CONTACT</h1></Button>
                         </ThemeProvider>
-                      </Link>
                     </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <Link  to="/about"> 
-                        <ThemeProvider theme={theme}>
-                          <Button><h1  className="text-4xl text-white">_ABOUT</h1></Button>
-                        </ThemeProvider>
-                      </Link>
-                    </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <Link  to="/services"> 
-                        <ThemeProvider theme={theme}>
-                          <Button><h1  className="text-4xl text-white">_SERVICES</h1></Button>
-                        </ThemeProvider>
-                      </Link>
-                    </MenuItem>
-                    <MenuItem onClick={handleClose}>
-                      <Link  to="/contact"> 
-                        <ThemeProvider theme={theme}>
-                          <Button><h1  className="text-4xl text-white">_CONTACT</h1></Button>
-                        </ThemeProvider>
-                      </Link>
-                    </MenuItem>
+                    </Link>
                     <MenuItem onClick={handleClose}>
                     <div className="text-center w-full flex flex-row justify-center items-center pt-8">
                       <div>

@@ -12,7 +12,7 @@ function Blog() {
   const [postsPerPage] = useState(5);
 
   React.useEffect(() => {
-    axios.get("http://localhost:4000/api/posts").then((response) => {
+    axios.get("https://crowncleanapi.herokuapp.com/api/posts").then((response) => {
       setPost(response.data);
     });
   }, []);
@@ -35,7 +35,7 @@ function Blog() {
               BLOG
             </h1>
             <p className='font-light text-center text-gray-500 dark:text-white sm:text-xl w-full'>
-            The Car Cleaning Company are a leading mobile vehicle enhancement specialist. established in 2012, and operating around the Ribble Valley, we have been dedicated to bringing our customers the very best in vehicle enhancement, protection and maintenance from the very start. 
+            Follow our blog and learn more about our work!
             </p>
         </div>
       </section>
