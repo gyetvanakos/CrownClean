@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { MdOutlineArrowLeft, MdOutlineArrowRight } from "react-icons/md";
 import { homeSlider } from "../home_slider";
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
@@ -28,11 +27,6 @@ const Slider = () => {
 const nextSlide = () => {
     setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
     console.log("next");
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide - 1);
-    console.log("prev");
   };
 
   function auto() {

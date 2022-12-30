@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
-import { useNavigate } from "react-router";
 import { request } from "../utils/axios-util";
-import Select from "react-select";
-import { useQuery } from "react-query";
 import Button from '@mui/material/Button';
 
 Modal.setAppElement("#root");

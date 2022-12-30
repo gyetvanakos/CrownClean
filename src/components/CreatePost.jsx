@@ -16,7 +16,7 @@ function CreatePost() {
     const handleOnSubmitForm = async (e) => {
         e.preventDefault();
         if (title === "" || content === "") {
-          return alert("Please fill out the fields in a correct way!");
+          return alert("Please fill out nthe fields in a correct way!");
         }
         const data = {
           title: title,
@@ -71,8 +71,8 @@ function CreatePost() {
     </div>
     <div className="pt-8 pb-8">
       <input
-      
       type="file"
+      accept="image/*"
       onChange={(event) => {
       uploadFile(event.target.files[0]);
       }}/>

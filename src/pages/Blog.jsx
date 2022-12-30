@@ -4,8 +4,6 @@ import Pagination from '../components/Pagination';
 import axios from "axios";
 import cclogo from '../assets/logo.svg';
 
-const baseURL = "http://localhost:4000/api/posts";
-
 function Blog() {
 
   const [posts, setPost] = useState([]);
@@ -14,7 +12,7 @@ function Blog() {
   const [postsPerPage] = useState(5);
 
   React.useEffect(() => {
-    axios.get(baseURL).then((response) => {
+    axios.get("http://localhost:4000/api/posts").then((response) => {
       setPost(response.data);
     });
   }, []);

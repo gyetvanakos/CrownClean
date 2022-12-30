@@ -4,20 +4,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import testpic from '../assets/testpic.jpg';
-import Button from '@mui/material/Button';
-import { request } from "../utils/axios-util";
-import swal from "sweetalert";
-
-function handleOnClickDelete(postId) {
-  request({ url: `/posts/${postId}`, method: "DELETE" }).then(() => {
-    swal("Success!", "Post was deleted.", "success", {
-      buttons: false,
-      timer: 2000,
-    }).then(() => {
-      window.location.href = "/blog";
-    });
-  });
-}
 
 const Posts = ({ posts, loading }) => {
   if (loading) {

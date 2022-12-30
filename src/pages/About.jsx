@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from "react-router-dom";
 import ImageSlider from "../components/ImageSlider";
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import cclogo from '../assets/logo.svg';
 import { FiMail } from "react-icons/fi";
-import { FaFacebook, FaEnvelope, FaTiktok } from 'react-icons/fa';
+import { FaFacebook, FaTiktok } from 'react-icons/fa';
 
 const theme = createTheme({
   palette: {

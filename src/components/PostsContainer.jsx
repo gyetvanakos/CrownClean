@@ -1,8 +1,6 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import { useQuery } from "react-query";
 import { request } from "../utils/axios-util";
-import { useNavigate } from "react-router";
 import swal from "sweetalert";
 import Button from '@mui/material/Button';
 import PostsUpdateModal from '../components/PostsUpdateModal';
@@ -11,7 +9,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import testpic from '../assets/testpic.jpg';
-import { positions } from '@mui/system';
 
 
 

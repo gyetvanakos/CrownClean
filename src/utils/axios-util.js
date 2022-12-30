@@ -3,6 +3,7 @@ import axios from "axios";
 const client = axios.create({
   baseURL: "http://localhost:4000/",
 });
+
 export const request = ({ ...options }) => {
   let token = localStorage.getItem("accessToken");
   if (token) {
@@ -11,7 +12,6 @@ export const request = ({ ...options }) => {
 
   const onSuccess = (response) => response;
   const onError = (error) => {
-    // optionaly catch errors and add additional logging here
     return error;
   };
 
