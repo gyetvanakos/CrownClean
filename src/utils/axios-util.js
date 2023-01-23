@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const client = axios.create({
-  baseURL: "https://crowncleanapi.herokuapp.com/",
+  baseURL: "http://localhost:4000/",
 });
 
 export const request = ({ ...options }) => {
