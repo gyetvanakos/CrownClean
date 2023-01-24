@@ -2,12 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_APIKEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECTID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGEBUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGINGSENDERID,
-  appId: process.env.REACT_APP_FIREBASE_APPID,
+  apiKey: "AIzaSyA6QEMPINgE9IVvUB8XD9XNeFQjTGnXwGQ",
+  authDomain: "crownclean-41562.firebaseapp.com",
+  projectId: "crownclean-41562",
+  storageBucket: "crownclean-41562.appspot.com",
+  messagingSenderId: "261562951385",
+  appId: "1:261562951385:web:5b6547ed93c3264b1e40c8",
+  measurementId: "G-KHPQWEG18X"
 };
 
 const app = initializeApp(firebaseConfig);

@@ -1,33 +1,30 @@
-import React, { Component } from "react";
-import { Editor } from "react-draft-wysiwyg";
-import { EditorState, convertToRaw } from "draft-js";
+import React, { useState, useEffect } from 'react';
+import { EditorState,  convertToRaw } from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
 import { request } from "../utils/axios-util";
 import Button from '@mui/material/Button';
-
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import draftToHtml from "draftjs-to-html";
 
-export default class TextEditor extends Component {
-  state = {
-    editorState: EditorState.createEmpty(),
-    content: ''
-  };
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
-  onEditorStateChange = (editorState) => {
-    this.setState({
-      editorState,
-      content:draftToHtml(convertToRaw(editorState.getCurrentContent()))
-    });
-    console.log('fasz', this.state.content)
-  };
+function TextEditor() {
+  const [editorState, setEditorState] = useState(
+    () => EditorState.createEmpty(),
+  );
+  const [convertedContent, setConvertedContent] = useState('');
 
-  handleOnSubmitForm = async (e) => {
+  useEffect(() => {
+    let html = draftToHtml(convertToRaw(editorState.getCurrentContent()));
+    setConvertedContent(html);
+  }, [editorState]);
+
+  const handleOnSubmitForm = async (e) => {
     e.preventDefault();
-    if (this.state.content === "") {
-      return alert("Please fill out nthe fields in a correct way!");
+    if ( convertedContent === "") {
+      return alert("Please fill out the field in a correct way!");
     }
     const data = {
-      content: this.state.content,
+      content: convertedContent,
     };
     request({ url: `/api/posts/`, method: "POST", data: data }).then((res) => {
       window.location.href = "/admin";
@@ -36,31 +33,27 @@ export default class TextEditor extends Component {
     console.log(data)
   };
 
-  render() {
-    const { editorState } = this.state;
-    console.log(draftToHtml(convertToRaw(editorState.getCurrentContent())));
-    return (
-      <div>
+  return (
+    <div>
+      <div className="block mb-3 mt-3 p-3 w-full text-sm rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-[#18191a] dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light">
         <Editor
           editorState={editorState}
-          toolbarClassName="toolbarClassName"
-          wrapperClassName="wrapperClassName"
-          editorClassName="editorClassName"
-          onEditorStateChange={this.onEditorStateChange}
+          onEditorStateChange={setEditorState}
+          wrapperClassName="wrapper-class"
+          editorClassName="editor-class"
+          toolbarClassName="toolbar-class"
         />
-        <textarea
-          disabled
-          value={draftToHtml(convertToRaw(editorState.getCurrentContent()))}
-        ></textarea>
+      </div>
         <Button 
-          className="" 
+          className="pt-8" 
           variant="contained" 
           type="submit" 
           size="large"
-          onClick={this.handleOnSubmitForm}>
-        Create post
-      </Button>
-      </div>
-    );
-  }
+          onClick={handleOnSubmitForm}>
+            Create post
+        </Button>
+    </div>
+  )
 }
+
+export default TextEditor;
